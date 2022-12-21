@@ -17,6 +17,8 @@ class SingupActivity : AppCompatActivity() {
         val sigupbtn = findViewById<Button>(R.id.signupbutton);
         val username = findViewById<EditText>(R.id.username_edit_text)
         val password = findViewById<EditText>(R.id.edit_text)
+
+
 // ...
 // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
@@ -36,5 +38,9 @@ class SingupActivity : AppCompatActivity() {
                 }
 
         }
+    }
+    fun ValidateInput()
+    {
+
     }
 }
