@@ -23,7 +23,7 @@ class SingupActivity : AppCompatActivity() {
 // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
         sigupbtn.setOnClickListener{
-            auth.createUserWithEmailAndPassword(username.text.toString(),password.text.toString())
+            auth.createUserWithEmailAndPassword(username.text.toString()!!,password.text.toString()!!)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
@@ -33,7 +33,7 @@ class SingupActivity : AppCompatActivity() {
                         finish()
                     } else {
                         // If sign in fails, display a message to the user.
-                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "Registration failed.", Toast.LENGTH_SHORT).show()
                     }
                 }
 
