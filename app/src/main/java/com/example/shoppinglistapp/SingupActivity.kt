@@ -14,7 +14,7 @@ class SingupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_singup)
-        val sigupbtn = findViewById<Button>(R.id.signupbutton);
+        val sigupbtn = findViewById<Button>(R.id.signupbutton)
         val username = findViewById<EditText>(R.id.username_edit_text)
         val password = findViewById<EditText>(R.id.edit_text)
 
@@ -23,7 +23,10 @@ class SingupActivity : AppCompatActivity() {
 // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
         sigupbtn.setOnClickListener{
-            auth.createUserWithEmailAndPassword(username.text.toString()!!,password.text.toString()!!)
+            auth.createUserWithEmailAndPassword(
+                username.text.toString(),
+                password.text.toString()
+            )
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information

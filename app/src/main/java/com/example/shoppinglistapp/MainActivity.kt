@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 else
             {
-                val snackbar = Snackbar.make(it,"Incorrect Login Details",Snackbar.LENGTH_SHORT);
-                snackbar.show();
+                val snackbar = Snackbar.make(it,"Incorrect Login Details",Snackbar.LENGTH_SHORT)
+                snackbar.show()
             }
 
             }
