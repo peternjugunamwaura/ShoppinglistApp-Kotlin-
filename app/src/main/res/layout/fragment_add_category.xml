@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".AddCategory">
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:contentDescription="Close Add Category"
+        app:icon="@drawable/ic_baseline_close_24"
+        android:id="@+id/closebtn"
+        app:iconTint="#ED7D31"
+        android:backgroundTint="@color/white"/>
+  <com.google.android.material.textfield.TextInputLayout
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_marginTop="35dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:hint="Category Title">
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:id="@+id/categorytitle"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        />
+</com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:hint="Category Description">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/categorydescription"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_baseline_add_task_24"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:strokeColor="#ED7D31"
+        android:layout_marginBottom="30dp"
+        app:iconTint="#ED7D31"
+        android:textColor="#ED7D31"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="20dp"
+        android:text="Submit Category"
+        android:id="@+id/addcategory"
+        android:layout_marginHorizontal="10dp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
