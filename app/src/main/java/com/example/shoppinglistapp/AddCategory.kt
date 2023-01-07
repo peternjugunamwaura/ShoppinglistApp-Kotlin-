@@ -10,11 +10,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.shoppinglistapp.database.BaseFragment
 import com.example.shoppinglistapp.database.Category
 import com.example.shoppinglistapp.database.CategoryDatabase
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-class AddCategory : BottomSheetDialogFragment() {
+import kotlinx.coroutines.launch
+
+class AddCategory : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,26 +49,21 @@ class AddCategory : BottomSheetDialogFragment() {
                 return@setOnClickListener
             }
             val category = Category(categorytitle,categorydescription)
-            savecategory(category)
+
+            context?.let {
+                launch {
+                    CategoryDatabase(it).getCategoryDao().insertCategory(category)
+                    Toast.makeText(context,"Category Saved Successfully",Toast.LENGTH_SHORT).show()
+                    categorytitleEditfield.text=null
+                    categorydescriptionEditField.text=null
+                    categorytitleEditfield.requestFocus()
+
+                }
+            }
 
         }
         return view;
 
     }
-    private fun savecategory(category: Category)
-    {
-        class SaveCategory: AsyncTask<Void,Void,Void>() {
-            override fun doInBackground(vararg p0: Void?): Void? {
-                context?.let { it1 ->
-                    CategoryDatabase(it1).getCategoryDao().insertCategory(category)}
-                     return null
-            }
 
-            override fun onPostExecute(result: Void?) {
-                super.onPostExecute(result)
-                Toast.makeText(activity,"Category added",Toast.LENGTH_SHORT).show()
-            }
-        }
-        SaveCategory().execute()
-    }
 }
